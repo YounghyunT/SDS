@@ -20,6 +20,10 @@
         <a href="#members">팀원</a>
         <a href="#projects">프로젝트</a>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="다크모드 켜기" data-theme-toggle>
+        <span class="theme-icon" aria-hidden="true">◐</span>
+        <span class="theme-label">Dark</span>
+      </button>
     </header>
 
     <main id="top">
@@ -36,23 +40,18 @@
             <a class="ghost-button" href="#projects">프로젝트 보기</a>
           </div>
         </div>
-        <div class="hero-visual" aria-label="삼다수 프로젝트 그래픽">
-          <div class="phone-card">
-            <div class="phone-top">
-              <span></span>
-              <span></span>
-              <span></span>
+        <div class="hero-visual" aria-label="세 학교가 연결된 삼다수 팀 네트워크">
+          <div class="union-card">
+            <p>3 Schools · 1 Team</p>
+            <div class="network-map" aria-hidden="true">
+              <span class="school-node node-main">삼다수</span>
+              <span class="school-node node-a">장흥중</span>
+              <span class="school-node node-b">관산중</span>
+              <span class="school-node node-c">안양중</span>
             </div>
-            <div class="code-lines">
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-            <div class="team-bubbles">
-              <b>장흥중</b>
-              <b>관산중</b>
-              <b>안양중</b>
+            <div class="union-caption">
+              <strong>학교는 달라도 프로젝트는 하나로</strong>
+              <span>기획 · 개발 · 발표를 함께 진행하는 연합 팀</span>
             </div>
           </div>
         </div>
@@ -85,8 +84,8 @@
             </p>
             <div class="stat-grid">
               <div>
-                <strong>14</strong>
-                <span>예시 팀원</span>
+                <strong>16</strong>
+                <span>예시 구성원</span>
               </div>
               <div>
                 <strong>3</strong>
@@ -143,6 +142,7 @@
           <button class="filter-button" type="button" data-school="jangheung">장흥중</button>
           <button class="filter-button" type="button" data-school="gwansan">장흥관산중</button>
           <button class="filter-button" type="button" data-school="anyang">장흥안양중</button>
+          <button class="filter-button" type="button" data-school="teachers">선생님</button>
         </div>
         <div class="member-groups" id="memberGroups"></div>
       </section>

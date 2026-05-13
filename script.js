@@ -13,18 +13,26 @@ const members = [
   { name: "배유찬", school: "장흥관산중", schoolId: "gwansan", color: "#20859e" },
   { name: "신라온", school: "장흥안양중", schoolId: "anyang", color: "#d55b4d" },
   { name: "홍지훈", school: "장흥안양중", schoolId: "anyang", color: "#d59a2f" },
+  { name: "영현T", school: "장흥중 / 정보", schoolId: "teachers", color: "#111827", role: "teacher" },
+  { name: "영욱T", school: "장흥관산중 / 사회", schoolId: "teachers", color: "#334155", role: "teacher" },
 ];
 
 const schoolLabels = {
   jangheung: "장흥중",
   gwansan: "장흥관산중",
   anyang: "장흥안양중",
+  teachers: "선생님",
 };
 
 const memberGroups = document.querySelector("#memberGroups");
 const filterButtons = document.querySelectorAll(".filter-button");
+const themeToggle = document.querySelector("[data-theme-toggle]");
 
 function initials(name) {
+  if (name.endsWith("T")) {
+    return name.slice(0, 2);
+  }
+
   return name.slice(1, 3);
 }
 
@@ -34,7 +42,7 @@ function memberCard(member) {
   const githubUrl = `https://github.com/`;
 
   return `
-    <article class="member-card">
+    <article class="member-card${member.role === "teacher" ? " teacher-card" : ""}">
       <div class="avatar" style="background: linear-gradient(140deg, ${member.color}, #172027);">
         ${initials(member.name)}
       </div>
@@ -105,3 +113,15 @@ filterButtons.forEach((button) => {
 });
 
 renderMembers();
+
+const savedTheme = localStorage.getItem("samdasoo-theme");
+if (savedTheme === "dark") {
+  document.body.classList.add("dark-mode");
+  themeToggle?.setAttribute("aria-label", "다크모드 끄기");
+}
+
+themeToggle?.addEventListener("click", () => {
+  const isDark = document.body.classList.toggle("dark-mode");
+  localStorage.setItem("samdasoo-theme", isDark ? "dark" : "light");
+  themeToggle.setAttribute("aria-label", isDark ? "다크모드 끄기" : "다크모드 켜기");
+});
