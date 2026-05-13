@@ -103,10 +103,21 @@ function App() {
           <MembersSection school={school} setSchool={setSchool} visibleGroups={visibleGroups} />
           <ProjectsSection />
         </main>
-        <footer className="border-t border-slate-200 bg-white px-5 py-9 text-slate-600 dark:border-white/10 dark:bg-slate-950 dark:text-slate-400">
-          <div className="mx-auto flex max-w-6xl flex-col gap-2">
-            <strong className="text-slate-950 dark:text-white">장흥 연합코딩동아리 삼다수</strong>
-            <span>함께 배우고, 함께 만들고, 함께 보여주는 팀.</span>
+        <footer className="border-t border-slate-200 bg-slate-950 px-5 py-9 text-slate-300 dark:border-white/10">
+          <div className="mx-auto max-w-6xl overflow-hidden rounded-[1.5rem] border border-cyan-300/20 bg-slate-900 shadow-soft">
+            <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3">
+              <span className="h-3 w-3 rounded-full bg-red-500" />
+              <span className="h-3 w-3 rounded-full bg-yellow-400" />
+              <span className="h-3 w-3 rounded-full bg-emerald-400" />
+              <span className="ml-3 font-mono text-xs text-slate-400">footer.config.js</span>
+            </div>
+            <div className="grid gap-2 px-5 py-5 font-mono text-sm leading-7">
+              <p className="text-slate-500">// 장흥 연합코딩동아리 삼다수</p>
+              <p><span className="text-cyan-300">Project</span>: <span className="text-white">SAMDASU_WEB_v1.0</span>;</p>
+              <p><span className="text-emerald-300">Contributors</span>: <span className="text-white">Jangheung Coding Union</span>;</p>
+              <p><span className="text-amber-300">Status</span>: <span className="text-white">Always Growing...</span>;</p>
+              <p className="pt-2 text-xs text-slate-500">made_by: 삼다수_dev_team;</p>
+            </div>
           </div>
         </footer>
       </div>
@@ -355,13 +366,13 @@ function MembersSection({ school, setSchool, visibleGroups }) {
     <section id="members" className="px-5 py-14">
       <div className="mx-auto max-w-6xl">
         <SectionTitle eyebrow="Members" title="학교별 팀원 소개" icon={UsersRound} />
-        <div className="mt-6 flex gap-2 overflow-x-auto rounded-3xl border border-slate-200 bg-slate-50 p-2 dark:border-white/10 dark:bg-white/5">
+        <div className="mt-6 grid grid-cols-2 gap-2 rounded-3xl border border-slate-200 bg-slate-50 p-2 dark:border-white/10 dark:bg-white/5 sm:grid-cols-3 lg:grid-cols-5">
           {Object.entries(schoolLabels).map(([id, label]) => (
             <button
               key={id}
               type="button"
               onClick={() => setSchool(id)}
-              className={`inline-flex h-11 shrink-0 items-center gap-2 rounded-full px-4 font-black transition ${
+              className={`inline-flex h-12 min-w-0 items-center justify-center gap-2 rounded-2xl px-3 text-sm font-black transition sm:text-base ${
                 school === id ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950" : "text-slate-600 dark:text-slate-300"
               }`}
             >
