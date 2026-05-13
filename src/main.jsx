@@ -5,11 +5,14 @@ import {
   CalendarDays,
   ChevronRight,
   CircleCheck,
+  CircuitBoard,
   Code2,
+  Cpu,
   Gamepad2,
   Github,
   GraduationCap,
   Instagram,
+  Keyboard,
   Moon,
   NotebookTabs,
   Rocket,
@@ -45,7 +48,7 @@ const members = [
   { name: "배유찬", school: "장흥관산중", schoolId: "gwansan", color: "from-sky-400 to-cyan-900" },
   { name: "신라온", school: "장흥안양중", schoolId: "anyang", color: "from-red-400 to-zinc-900" },
   { name: "홍지훈", school: "장흥안양중", schoolId: "anyang", color: "from-yellow-400 to-stone-900" },
-  { name: "영현T", school: "장흥중 / 정보", schoolId: "teachers", color: "from-slate-700 to-black", teacher: true },
+  { name: "영현T", school: "장흥중 / 정보", schoolId: "teachers", color: "from-slate-700 to-black", teacher: true, image: "/younghyun-avatar.png" },
   { name: "영욱T", school: "장흥관산중 / 사회", schoolId: "teachers", color: "from-blue-700 to-slate-950", teacher: true },
 ];
 
@@ -145,15 +148,32 @@ function Header({ dark, setDark }) {
 
 function Hero() {
   return (
-    <section id="top" className="mx-auto grid max-w-6xl gap-8 px-5 py-12 md:grid-cols-[1.02fr_0.98fr] md:items-center md:py-20">
+    <section id="top" className="mx-auto grid max-w-6xl gap-8 px-5 py-12 md:grid-cols-[0.92fr_1.08fr] md:items-center md:py-20">
       <div>
         <Pill icon={School}>장흥중 · 장흥관산중 · 장흥안양중</Pill>
-        <h1 className="mt-5 text-5xl font-black leading-[1.02] tracking-tight sm:text-6xl md:text-7xl">
-          장흥을 연결하는 연합코딩동아리, 삼다수
+        <h1 className="mt-5 text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
+          <span className="inline-flex items-center gap-2">
+            <Keyboard className="text-blue-500" size={34} />
+            장흥을 연결하는
+          </span>
+          <span className="mt-1 block bg-gradient-to-r from-blue-600 via-emerald-500 to-rose-500 bg-clip-text text-transparent">
+            연합코딩동아리, 삼다수
+          </span>
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
           서로 다른 학교의 학생들이 모여 게임, 웹, AI, 피지컬 컴퓨팅 프로젝트를 함께 만들고 발표하는 학생 개발 팀입니다.
         </p>
+        <div className="mt-5 flex flex-wrap gap-2">
+          <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-sm font-black text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-200">
+            <Cpu size={16} /> Web
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-2 text-sm font-black text-blue-700 dark:bg-blue-400/10 dark:text-blue-200">
+            <Gamepad2 size={16} /> Game
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-rose-50 px-3 py-2 text-sm font-black text-rose-700 dark:bg-rose-400/10 dark:text-rose-200">
+            <CircuitBoard size={16} /> AI
+          </span>
+        </div>
         <div className="mt-7 flex flex-wrap gap-3">
           <a className="inline-flex h-12 items-center gap-2 rounded-full bg-slate-950 px-5 font-black text-white shadow-soft dark:bg-white dark:text-slate-950" href="#members">
             <UsersRound size={19} /> 팀원 보기
@@ -164,25 +184,44 @@ function Hero() {
         </div>
       </div>
       <div className="relative">
-        <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-blue-200 via-emerald-100 to-rose-100 blur-2xl dark:from-blue-500/20 dark:via-emerald-500/10 dark:to-rose-500/20" />
-        <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-5 shadow-glow dark:border-white/10 dark:bg-slate-900">
-          <div className="flex items-center justify-between">
-            <Pill icon={Sparkles}>3 Schools · 1 Team</Pill>
-            <Code2 className="text-blue-500" />
+        <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-cyan-300 via-blue-400 to-emerald-300 opacity-60 blur-2xl dark:from-cyan-500/30 dark:via-blue-500/20 dark:to-emerald-400/20" />
+        <div className="relative overflow-hidden rounded-[2rem] border border-cyan-300/60 bg-slate-950 shadow-glow ring-1 ring-cyan-300/30">
+          <div className="flex items-center gap-3 border-b border-cyan-300/20 bg-slate-900 px-5 py-4">
+            <span className="h-3 w-3 rounded-full bg-red-500" />
+            <span className="h-3 w-3 rounded-full bg-yellow-400" />
+            <span className="h-3 w-3 rounded-full bg-emerald-400" />
+            <span className="ml-2 flex min-w-0 items-center gap-2 truncate font-mono text-sm text-cyan-200">
+              <Code2 size={16} /> samdasu_core.exe
+            </span>
           </div>
-          <div className="relative mt-6 h-60 rounded-3xl bg-slate-50 dark:bg-slate-800">
-            <SchoolNode className="left-5 top-5 bg-blue-500">장흥중</SchoolNode>
-            <SchoolNode className="right-5 top-5 bg-emerald-500">관산중</SchoolNode>
-            <SchoolNode className="bottom-5 left-1/2 -translate-x-1/2 bg-rose-500">안양중</SchoolNode>
-            <div className="absolute left-1/2 top-1/2 grid h-24 w-24 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-slate-950 text-lg font-black text-white shadow-soft dark:bg-white dark:text-slate-950">
-              삼다수
+          <div className="cyber-grid p-5 font-mono text-[13px] leading-6 text-slate-200 sm:p-6 sm:text-sm">
+            <CyberLine color="text-cyan-300">[SYSTEM] Starting Samdasu_Core...</CyberLine>
+            <CyberLine>&gt; Location: JANGHEUNG_REGION (장흥 연합)</CyberLine>
+            <CyberLine>&gt; Status: Connecting... <span className="text-emerald-300">[OK]</span></CyberLine>
+            <br />
+            <CyberLine color="text-fuchsia-300">[PROFILE]</CyberLine>
+            <CyberLine>- NAME: 삼다수 (SAMDASU)</CyberLine>
+            <CyberLine>- GOAL: 맑고 깨끗한 코드 제작</CyberLine>
+            <CyberLine>- TEAM: 장흥의 중학생 개발자들</CyberLine>
+            <br />
+            <CyberLine color="text-yellow-300">[PROJECTS]</CyberLine>
+            <CyberLine>&gt; Running <span className="text-blue-300">[WEB_PROJECT]</span>... 장흥을 담은 웹사이트</CyberLine>
+            <CyberLine>&gt; Running <span className="text-rose-300">[GAME_PROJECT]</span>... 우리가 직접 만든 게임</CyberLine>
+            <div className="my-3">
+              <div className="mb-1 flex items-center justify-between text-xs text-slate-400">
+                <span>&gt; Progress</span>
+                <span className="text-emerald-300">85% Completed</span>
+              </div>
+              <div className="h-2 overflow-hidden rounded-full bg-slate-800">
+                <div className="h-full w-[85%] rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400" />
+              </div>
             </div>
-            <div className="absolute left-1/2 top-16 h-28 w-px -translate-x-1/2 bg-slate-300 dark:bg-white/20" />
-            <div className="absolute left-20 top-1/2 h-px w-44 bg-slate-300 dark:bg-white/20" />
-          </div>
-          <div className="mt-5 rounded-3xl bg-slate-950 p-5 text-white dark:bg-white dark:text-slate-950">
-            <strong className="flex items-center gap-2 text-xl"><Rocket size={21} /> 학교는 달라도 프로젝트는 하나로</strong>
-            <p className="mt-2 text-sm leading-6 opacity-75">기획 · 개발 · 발표를 함께 진행하는 연합 팀</p>
+            <CyberLine color="text-emerald-300">[MESSAGE]</CyberLine>
+            <CyberLine>"코딩 갈증, 삼다수가 해결합니다."</CyberLine>
+            <br />
+            <CyberLine>&gt; System Ready.</CyberLine>
+            <CyberLine>&gt; login --guest</CyberLine>
+            <CyberLine color="text-cyan-300">&gt; Welcome to SAMDASU world! <span className="terminal-cursor">█</span></CyberLine>
           </div>
         </div>
       </div>
@@ -351,9 +390,17 @@ function MembersSection({ school, setSchool, visibleGroups }) {
 function MemberCard({ member }) {
   return (
     <article className="rounded-[1.7rem] border border-slate-200 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-soft dark:border-white/10 dark:bg-slate-900">
-      <div className={`mx-auto grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br ${member.color} text-3xl font-black text-white ring-4 ring-slate-100 dark:ring-slate-800`}>
-        {initials(member.name)}
-      </div>
+      {member.image ? (
+        <img
+          src={member.image}
+          alt={`${member.name} 대표 이미지`}
+          className="mx-auto h-24 w-24 rounded-full object-cover ring-4 ring-slate-100 dark:ring-slate-800"
+        />
+      ) : (
+        <div className={`mx-auto grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br ${member.color} text-3xl font-black text-white ring-4 ring-slate-100 dark:ring-slate-800`}>
+          {initials(member.name)}
+        </div>
+      )}
       <h4 className="mt-4 text-lg font-black">{member.name}</h4>
       <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{member.school}</p>
       <div className="mt-4 flex justify-center gap-2">
@@ -407,8 +454,8 @@ function Pill({ icon: Icon, children }) {
   );
 }
 
-function SchoolNode({ className, children }) {
-  return <span className={`absolute grid h-12 min-w-24 place-items-center rounded-full px-4 text-sm font-black text-white shadow-soft ${className}`}>{children}</span>;
+function CyberLine({ children, color = "text-slate-200" }) {
+  return <p className={`cyber-line ${color}`}>{children}</p>;
 }
 
 function SectionTitle({ eyebrow, title, icon: Icon }) {
