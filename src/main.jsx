@@ -103,20 +103,20 @@ function App() {
           <MembersSection school={school} setSchool={setSchool} visibleGroups={visibleGroups} />
           <ProjectsSection />
         </main>
-        <footer className="border-t border-slate-200 bg-slate-950 px-5 py-9 text-slate-300 dark:border-white/10">
-          <div className="mx-auto max-w-6xl overflow-hidden rounded-[1.5rem] border border-cyan-300/20 bg-slate-900 shadow-soft">
-            <div className="flex items-center gap-2 border-b border-white/10 px-5 py-3">
-              <span className="h-3 w-3 rounded-full bg-red-500" />
-              <span className="h-3 w-3 rounded-full bg-yellow-400" />
-              <span className="h-3 w-3 rounded-full bg-emerald-400" />
-              <span className="ml-3 font-mono text-xs text-slate-400">footer.config.js</span>
+        <footer className="border-t border-slate-200 bg-slate-950 px-5 py-7 text-slate-300 dark:border-white/10">
+          <div className="mx-auto max-w-6xl overflow-hidden rounded-2xl border border-cyan-300/20 bg-slate-900/95 shadow-soft">
+            <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-2.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
+              <span className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              <span className="ml-2 font-mono text-[11px] italic text-slate-500">footer.config.js</span>
             </div>
-            <div className="grid gap-2 px-5 py-5 font-mono text-sm leading-7">
-              <p className="text-slate-500">// 장흥 연합코딩동아리 삼다수</p>
+            <div className="grid gap-1 px-4 py-4 font-mono text-[11px] italic leading-5 sm:grid-cols-3 sm:gap-x-5">
+              <p className="text-slate-500 sm:col-span-3">// 장흥 연합코딩동아리 삼다수</p>
               <p><span className="text-cyan-300">Project</span>: <span className="text-white">SAMDASU_WEB_v1.0</span>;</p>
               <p><span className="text-emerald-300">Contributors</span>: <span className="text-white">Jangheung Coding Union</span>;</p>
               <p><span className="text-amber-300">Status</span>: <span className="text-white">Always Growing...</span>;</p>
-              <p className="pt-2 text-xs text-slate-500">made_by: 삼다수_dev_team;</p>
+              <p className="pt-1 text-[10px] text-slate-500 sm:col-span-3">made_by: 삼다수_dev_team;</p>
             </div>
           </div>
         </footer>
@@ -144,13 +144,14 @@ function Header({ dark, setDark }) {
           <a className="rounded-full px-3 py-2 hover:bg-white dark:hover:bg-white/10" href="#projects">프로젝트</a>
         </nav>
         <button
-          className="inline-flex h-11 items-center gap-2 rounded-full border border-slate-200 bg-white px-3 text-sm font-black shadow-sm dark:border-white/10 dark:bg-white/10"
+          className="inline-flex h-11 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 text-xs font-black shadow-sm dark:border-white/10 dark:bg-white/10 sm:gap-2 sm:text-sm"
           type="button"
           onClick={() => setDark(!dark)}
           aria-label={dark ? "라이트모드 켜기" : "다크모드 켜기"}
         >
-          {dark ? <Sun size={18} /> : <Moon size={18} />}
-          <span className="hidden sm:inline">{dark ? "Light" : "Dark"}</span>
+          {dark ? <Sun size={17} /> : <Moon size={17} />}
+          <span className="sm:hidden">{dark ? "라이트" : "다크"}</span>
+          <span className="hidden sm:inline">{dark ? "라이트모드" : "다크모드"}</span>
         </button>
       </div>
     </header>
