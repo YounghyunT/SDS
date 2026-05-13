@@ -4,6 +4,7 @@ import {
   Award,
   CalendarDays,
   ChevronRight,
+  CircleCheck,
   Code2,
   Gamepad2,
   Github,
@@ -13,6 +14,7 @@ import {
   NotebookTabs,
   Rocket,
   School,
+  Terminal,
   Sparkles,
   Sun,
   Trophy,
@@ -190,35 +192,60 @@ function Hero() {
 
 function ClubSection({ activeTab, setActiveTab }) {
   const tabs = [
-    { id: "about", label: "소개", icon: NotebookTabs },
-    { id: "history", label: "연혁", icon: CalendarDays },
-    { id: "awards", label: "수상실적", icon: Award },
+    { id: "about", label: "소개", command: "samdasoo intro", icon: NotebookTabs },
+    { id: "history", label: "연혁", command: "git log --samdasoo", icon: CalendarDays },
+    { id: "awards", label: "수상실적", command: "cat awards.md", icon: Award },
   ];
+  const active = tabs.find((tab) => tab.id === activeTab) || tabs[0];
 
   return (
-    <section id="club" className="bg-slate-50 px-5 py-14 dark:bg-slate-900/55">
+    <section id="club" className="bg-slate-50 px-5 py-14 dark:bg-slate-900/55 md:py-20">
       <div className="mx-auto max-w-6xl">
         <SectionTitle eyebrow="Club" title="동아리 소개" icon={Sparkles} />
-        <div className="mt-6 flex gap-2 overflow-x-auto pb-2">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => setActiveTab(tab.id)}
-              className={`inline-flex h-12 shrink-0 items-center gap-2 rounded-full px-5 font-black transition ${
-                activeTab === tab.id
-                  ? "bg-slate-950 text-white dark:bg-white dark:text-slate-950"
-                  : "border border-slate-200 bg-white text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
-              }`}
-            >
-              <tab.icon size={18} /> {tab.label}
-            </button>
-          ))}
-        </div>
-        <div className="mt-3 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft dark:border-white/10 dark:bg-slate-950 md:p-8">
-          {activeTab === "about" && <AboutPanel />}
-          {activeTab === "history" && <HistoryPanel />}
-          {activeTab === "awards" && <AwardsPanel />}
+        <div className="mt-6 overflow-hidden rounded-[1.75rem] border border-slate-800 bg-slate-950 shadow-glow dark:border-white/10">
+          <div className="flex items-center gap-3 border-b border-white/10 bg-slate-800 px-5 py-4">
+            <span className="h-3.5 w-3.5 rounded-full bg-red-500" />
+            <span className="h-3.5 w-3.5 rounded-full bg-amber-400" />
+            <span className="h-3.5 w-3.5 rounded-full bg-emerald-400" />
+            <div className="ml-4 flex min-w-0 items-center gap-2 text-sm font-medium text-slate-300">
+              <Terminal size={16} />
+              <span className="truncate">bash - samdasoo-club</span>
+            </div>
+          </div>
+          <div className="grid gap-0 lg:grid-cols-[240px_1fr]">
+            <div className="border-b border-white/10 bg-slate-900/70 p-4 lg:border-b-0 lg:border-r">
+              <div className="flex gap-2 overflow-x-auto lg:grid">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`inline-flex h-12 shrink-0 items-center gap-2 rounded-2xl px-4 text-left font-black transition ${
+                      activeTab === tab.id
+                        ? "bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+                        : "bg-white/5 text-slate-300 hover:bg-white/10"
+                    }`}
+                  >
+                    <tab.icon size={18} /> {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="p-5 sm:p-7 md:p-9">
+              <div className="mb-7 font-mono text-sm sm:text-base">
+                <span className="text-slate-500">&gt;</span>{" "}
+                <span className="font-black text-emerald-300">{active.command}</span>
+                <p className="mt-2 pl-6 text-slate-400"># {active.label} 정보를 삼다수 스타일로 불러오는 중</p>
+              </div>
+              {activeTab === "about" && <AboutPanel />}
+              {activeTab === "history" && <HistoryPanel />}
+              {activeTab === "awards" && <AwardsPanel />}
+              <div className="mt-7 border-t border-white/10 pt-5 font-mono text-sm text-emerald-300">
+                <CircleCheck className="mr-2 inline" size={18} />
+                Successfully loaded samdasoo club data!
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -228,8 +255,8 @@ function ClubSection({ activeTab, setActiveTab }) {
 function AboutPanel() {
   return (
     <>
-      <h3 className="text-2xl font-black">작게 배우고, 빠르게 만들고, 함께 발표합니다.</h3>
-      <p className="mt-3 max-w-4xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+      <h3 className="text-2xl font-black text-white md:text-3xl">작게 배우고, 빠르게 만들고, 함께 발표합니다.</h3>
+      <p className="mt-3 max-w-4xl text-lg leading-8 text-slate-300">
         삼다수는 장흥 지역 중학생들이 학교를 넘어 팀을 이루는 연합코딩동아리입니다. 매주 아이디어를 나누고, 역할을 정하고, 결과물을 실제로 사용할 수 있는 형태로 완성하는 것을 목표로 합니다.
       </p>
       <div className="mt-6 grid grid-cols-3 gap-3">
@@ -251,11 +278,11 @@ function HistoryPanel() {
   return (
     <div className="grid gap-3">
       {items.map(([date, text]) => (
-        <div key={date} className="flex items-start gap-3 rounded-3xl bg-slate-50 p-4 dark:bg-white/5">
-          <CalendarDays className="mt-1 shrink-0 text-blue-500" size={20} />
+        <div key={date} className="flex items-start gap-3 rounded-3xl bg-white/5 p-4 ring-1 ring-white/10">
+          <CalendarDays className="mt-1 shrink-0 text-cyan-300" size={20} />
           <div>
-            <strong className="text-blue-600 dark:text-blue-300">{date}</strong>
-            <p className="mt-1 text-slate-600 dark:text-slate-300">{text}</p>
+            <strong className="font-mono text-cyan-300">{date}</strong>
+            <p className="mt-1 text-slate-300">{text}</p>
           </div>
         </div>
       ))}
@@ -272,11 +299,11 @@ function AwardsPanel() {
   return (
     <div className="grid gap-3">
       {items.map(([title, text]) => (
-        <div key={title} className="flex items-start gap-3 rounded-3xl bg-slate-50 p-4 dark:bg-white/5">
-          <Trophy className="mt-1 shrink-0 text-amber-500" size={22} />
+        <div key={title} className="flex items-start gap-3 rounded-3xl bg-white/5 p-4 ring-1 ring-white/10">
+          <Trophy className="mt-1 shrink-0 text-yellow-300" size={22} />
           <div>
-            <strong>{title}</strong>
-            <p className="mt-1 text-slate-600 dark:text-slate-300">{text}</p>
+            <strong className="text-white">{title}</strong>
+            <p className="mt-1 text-slate-300">{text}</p>
           </div>
         </div>
       ))}
@@ -397,10 +424,10 @@ function SectionTitle({ eyebrow, title, icon: Icon }) {
 
 function Stat({ number, label, icon: Icon }) {
   return (
-    <div className="rounded-3xl bg-slate-50 p-4 text-center dark:bg-white/5">
-      <Icon className="mx-auto mb-2 text-blue-500" size={22} />
-      <strong className="block text-3xl font-black text-rose-500">{number}</strong>
-      <span className="text-sm text-slate-500 dark:text-slate-400">{label}</span>
+    <div className="rounded-3xl bg-white/5 p-4 text-center ring-1 ring-white/10">
+      <Icon className="mx-auto mb-2 text-blue-300" size={22} />
+      <strong className="block text-3xl font-black text-rose-300">{number}</strong>
+      <span className="text-sm text-slate-300">{label}</span>
     </div>
   );
 }
