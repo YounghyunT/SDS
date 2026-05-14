@@ -143,16 +143,27 @@ function Header({ dark, setDark }) {
           <a className="rounded-full px-3 py-2 hover:bg-white dark:hover:bg-white/10" href="#members">팀원</a>
           <a className="rounded-full px-3 py-2 hover:bg-white dark:hover:bg-white/10" href="#projects">프로젝트</a>
         </nav>
-        <button
-          className="inline-flex h-11 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 text-xs font-black shadow-sm dark:border-white/10 dark:bg-white/10 sm:gap-2 sm:text-sm"
-          type="button"
-          onClick={() => setDark(!dark)}
-          aria-label={dark ? "라이트모드 켜기" : "다크모드 켜기"}
-        >
-          {dark ? <Sun size={17} /> : <Moon size={17} />}
-          <span className="sm:hidden">{dark ? "라이트" : "다크"}</span>
-          <span className="hidden sm:inline">{dark ? "라이트모드" : "다크모드"}</span>
-        </button>
+        <div className="flex shrink-0 items-center gap-2">
+          <a
+            aria-label="삼다수 인스타그램"
+            href="https://instagram.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-fuchsia-500 via-rose-500 to-amber-400 text-white shadow-sm ring-1 ring-black/5"
+          >
+            <Instagram size={19} />
+          </a>
+          <button
+            className="inline-flex h-11 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 text-xs font-black shadow-sm dark:border-white/10 dark:bg-white/10 sm:gap-2 sm:text-sm"
+            type="button"
+            onClick={() => setDark(!dark)}
+            aria-label={dark ? "라이트모드 켜기" : "다크모드 켜기"}
+          >
+            {dark ? <Sun size={17} /> : <Moon size={17} />}
+            <span className="sm:hidden">{dark ? "라이트" : "다크"}</span>
+            <span className="hidden sm:inline">{dark ? "라이트모드" : "다크모드"}</span>
+          </button>
+        </div>
       </div>
     </header>
   );
@@ -401,24 +412,24 @@ function MembersSection({ school, setSchool, visibleGroups }) {
 
 function MemberCard({ member }) {
   return (
-    <article className="rounded-[1.7rem] border border-slate-200 bg-white p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-soft dark:border-white/10 dark:bg-slate-900">
+    <article className="rounded-[1.5rem] border border-slate-200 bg-white p-3 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-soft dark:border-white/10 dark:bg-slate-900">
       {member.image ? (
         <img
           src={member.image}
           alt={`${member.name} 대표 이미지`}
-          className="mx-auto h-24 w-24 rounded-full object-cover ring-4 ring-slate-100 dark:ring-slate-800"
+          className="mx-auto h-20 w-20 rounded-full object-cover ring-4 ring-slate-100 dark:ring-slate-800"
         />
       ) : (
-        <div className={`mx-auto grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br ${member.color} text-3xl font-black text-white ring-4 ring-slate-100 dark:ring-slate-800`}>
+        <div className={`mx-auto grid h-20 w-20 place-items-center rounded-full bg-gradient-to-br ${member.color} text-2xl font-black text-white ring-4 ring-slate-100 dark:ring-slate-800`}>
           {initials(member.name)}
         </div>
       )}
-      <h4 className="mt-4 text-lg font-black">{member.name}</h4>
+      <h4 className="mt-3 text-base font-black sm:text-lg">{member.name}</h4>
       <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{member.school}</p>
-      <div className="mt-4 flex justify-center gap-2">
-        <IconLink label={`${member.name} 인스타그램`} href="https://instagram.com/"><Instagram size={17} /></IconLink>
-        <IconLink label={`${member.name} 노션`} href="https://www.notion.so/"><NotebookTabs size={17} /></IconLink>
-        <IconLink label={`${member.name} 깃허브`} href="https://github.com/"><Github size={17} /></IconLink>
+      <div className="mt-3 flex justify-center gap-2">
+        <IconLink variant="instagram" label={`${member.name} 인스타그램`} href="https://instagram.com/"><Instagram size={16} /></IconLink>
+        <IconLink variant="notion" label={`${member.name} 노션`} href="https://www.notion.so/"><NotebookTabs size={16} /></IconLink>
+        <IconLink variant="github" label={`${member.name} 깃허브`} href="https://github.com/"><Github size={16} /></IconLink>
       </div>
     </article>
   );
@@ -491,14 +502,21 @@ function Stat({ number, label, icon: Icon }) {
   );
 }
 
-function IconLink({ label, href, children }) {
+function IconLink({ label, href, children, variant = "default" }) {
+  const variants = {
+    instagram: "border-transparent bg-gradient-to-br from-fuchsia-500 via-rose-500 to-amber-400 text-white hover:text-white",
+    notion: "border-slate-900 bg-white text-slate-950 hover:border-slate-500 dark:border-white dark:bg-white dark:text-slate-950",
+    github: "border-slate-900 bg-slate-950 text-white hover:border-slate-700 dark:border-white/20",
+    default: "border-slate-200 bg-white text-slate-700 hover:border-blue-300 hover:text-blue-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-200",
+  };
+
   return (
     <a
       aria-label={label}
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="grid h-10 w-10 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 transition hover:border-blue-300 hover:text-blue-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-200"
+      className={`grid h-9 w-9 place-items-center rounded-full border transition ${variants[variant]}`}
     >
       {children}
     </a>
