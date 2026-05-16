@@ -34,16 +34,16 @@ const schoolLabels = {
 };
 
 const members = [
-  { name: "김민준", school: "장흥중", schoolId: "jangheung", color: "from-blue-500 to-sky-900" },
-  { name: "이서연", school: "장흥중", schoolId: "jangheung", color: "from-emerald-400 to-teal-800" },
-  { name: "박도윤", school: "장흥중", schoolId: "jangheung", color: "from-rose-400 to-zinc-800" },
-  { name: "최하린", school: "장흥중", schoolId: "jangheung", color: "from-amber-300 to-stone-800" },
-  { name: "정우진", school: "장흥중", schoolId: "jangheung", color: "from-violet-500 to-indigo-900" },
-  { name: "한지우", school: "장흥중", schoolId: "jangheung", color: "from-cyan-400 to-slate-800" },
-  { name: "오시윤", school: "장흥중", schoolId: "jangheung", color: "from-pink-400 to-fuchsia-900" },
-  { name: "강예준", school: "장흥중", schoolId: "jangheung", color: "from-slate-500 to-blue-950" },
-  { name: "문서아", school: "장흥중", schoolId: "jangheung", color: "from-orange-400 to-red-900" },
-  { name: "윤태민", school: "장흥중", schoolId: "jangheung", color: "from-green-400 to-emerald-900" },
+  { name: "김진서", school: "장흥중", schoolId: "jangheung", color: "from-blue-500 to-sky-900" },
+  { name: "이원교", school: "장흥중", schoolId: "jangheung", color: "from-emerald-400 to-teal-800" },
+  { name: "김관형", school: "장흥중", schoolId: "jangheung", color: "from-rose-400 to-zinc-800" },
+  { name: "문민재", school: "장흥중", schoolId: "jangheung", color: "from-amber-300 to-stone-800" },
+  { name: "박재훈", school: "장흥중", schoolId: "jangheung", color: "from-violet-500 to-indigo-900" },
+  { name: "김선재", school: "장흥중", schoolId: "jangheung", color: "from-cyan-400 to-slate-800" },
+  { name: "박하랑", school: "장흥중", schoolId: "jangheung", color: "from-pink-400 to-fuchsia-900" },
+  { name: "최유진", school: "장흥중", schoolId: "jangheung", color: "from-slate-500 to-blue-950" },
+  { name: "위근영", school: "장흥중", schoolId: "jangheung", color: "from-orange-400 to-red-900" },
+  { name: "강지훈", school: "장흥중", schoolId: "jangheung", color: "from-green-400 to-emerald-900" },
   { name: "임가온", school: "장흥관산중", schoolId: "gwansan", color: "from-purple-400 to-slate-900" },
   { name: "배유찬", school: "장흥관산중", schoolId: "gwansan", color: "from-sky-400 to-cyan-900" },
   { name: "신라온", school: "장흥안양중", schoolId: "anyang", color: "from-red-400 to-zinc-900" },
@@ -59,7 +59,7 @@ const projects = [
     title: "장흥 물축제 게임프로젝트",
     type: "Game · Festival",
     description: "물축제를 배경으로 방문객이 모바일에서 바로 즐길 수 있는 미니 게임을 제작하는 프로젝트입니다.",
-    people: ["김민준", "이서연", "박도윤", "최하린"],
+    people: ["김진서", "이원교", "김관형", "문민재"],
   },
   {
     status: "끝난 프로젝트",
@@ -255,8 +255,8 @@ function Hero() {
 function ClubSection({ activeTab, setActiveTab }) {
   const tabs = [
     { id: "about", label: "소개", command: "samdasoo intro", icon: NotebookTabs },
-    { id: "history", label: "연혁", command: "git log --samdasoo", icon: CalendarDays },
-    { id: "awards", label: "수상실적", command: "cat awards.md", icon: Award },
+    { id: "history", label: "주요 사건", command: "git log --samdasoo", icon: CalendarDays },
+    { id: "awards", label: "선배님", command: "cat seniors.md", icon: Award },
   ];
   const active = tabs.find((tab) => tab.id === activeTab) || tabs[0];
 
@@ -317,12 +317,14 @@ function ClubSection({ activeTab, setActiveTab }) {
 function AboutPanel() {
   return (
     <>
-      <h3 className="text-2xl font-black text-white md:text-3xl">작게 배우고, 빠르게 만들고, 함께 발표합니다.</h3>
+      <h3 className="text-2xl font-black text-white md:text-3xl">3명의 학생으로 시작된 코딩동아리</h3>
       <p className="mt-3 max-w-4xl text-lg leading-8 text-slate-300">
-        삼다수는 장흥 지역 중학생들이 학교를 넘어 팀을 이루는 연합코딩동아리입니다. 매주 아이디어를 나누고, 역할을 정하고, 결과물을 실제로 사용할 수 있는 형태로 완성하는 것을 목표로 합니다.
+        삼다수 동아리는 순천 지역에서 처음 시작된 코딩동아리입니다:) 삼다수라는 이름의 의미는 처음 코딩동아리의 이름을 지을때, 3명의 학생이 코딩을 해보고싶어 모였기때문에 삼(3명)다수라고 지었다고 합니다.
+        <br />
+        2026년은 장흥에서 다시 시작합니다!
       </p>
       <div className="mt-6 grid grid-cols-3 gap-3">
-        <Stat number="16" label="예시 구성원" icon={UsersRound} />
+        <Stat number="16" label="구성원" icon={UsersRound} />
         <Stat number="3" label="참여 학교" icon={School} />
         <Stat number="1" label="진행 프로젝트" icon={Rocket} />
       </div>
@@ -332,9 +334,10 @@ function AboutPanel() {
 
 function HistoryPanel() {
   const items = [
-    ["2024. 03", "장흥 지역 코딩 스터디 모임으로 시작"],
-    ["2024. 09", "학교 연합 프로젝트 팀 체제로 확대"],
-    ["2025. 04", "삼다수 이름으로 첫 공개 프로젝트 기획"],
+    ["2020년", "전남상업경진대회 프로그래밍분야 선수반(동아리)으로 처음 시작"],
+    ["2021년", "동아리명없이 \"코딩동아리\"라고 부르며 여러 대외활동 참여"],
+    ["2022년", "신입생 3명이 \"삼다수\" 동아리명으로 정함"],
+    ["2026년~", "장흥에서 새로운 여정을 시작"],
   ];
 
   return (
@@ -354,18 +357,34 @@ function HistoryPanel() {
 
 function AwardsPanel() {
   const items = [
-    ["2025 장흥 청소년 SW 아이디어톤", "우수상 · 지역 축제 참여형 게임 기획"],
-    ["2024 학교 연합 메이커 발표회", "인기상 · 웹 기반 미니 서비스 발표"],
+    {
+      title: "재학 및 졸업",
+      lines: [
+        "서울예대 광고창작학과 합격",
+        "경북대 컴퓨터공학과 합격",
+        "전남대 인공지능학부 합격",
+        "단국대 컴퓨터공학과 합격",
+        "계명대, 순천대등 다수의 대학교 재학, 졸업",
+      ],
+    },
+    {
+      title: "취업",
+      lines: ["(주)쿠키아 채용", "(주)에이스퀘어 채용", "(주)엘시스 채용 등 다수의 기업 재직중"],
+    },
   ];
 
   return (
     <div className="grid gap-3">
-      {items.map(([title, text]) => (
+      {items.map(({ title, lines }) => (
         <div key={title} className="flex items-start gap-3 rounded-3xl bg-white/5 p-4 ring-1 ring-white/10">
           <Trophy className="mt-1 shrink-0 text-yellow-300" size={22} />
           <div>
             <strong className="text-white">{title}</strong>
-            <p className="mt-1 text-slate-300">{text}</p>
+            <div className="mt-1 space-y-1 text-slate-300">
+              {lines.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
           </div>
         </div>
       ))}
