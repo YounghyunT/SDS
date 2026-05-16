@@ -317,9 +317,11 @@ function ClubSection({ activeTab, setActiveTab }) {
 function AboutPanel() {
   return (
     <>
-      <h3 className="text-2xl font-black text-white md:text-3xl">3명의 학생으로 시작된 코딩동아리</h3>
+      <h3 className="text-2xl font-black text-white md:text-3xl">3명의 학생이 시작한 코딩동아리</h3>
       <p className="mt-3 max-w-4xl text-lg leading-8 text-slate-300">
-        삼다수 동아리는 순천에서 2020년에 처음 시작된 코딩동아리입니다:) 삼다수라는 이름의 의미는 코딩동아리의 이름을 지을때, 3명의 학생이 코딩을 해보고싶어 모였기때문에 삼(3명)다수라고 지었다고 합니다.
+        삼다수 동아리는 순천에서 2020년에 처음 시작된 코딩동아리입니다:)
+        <br />
+        삼다수라는 이름의 의미는 코딩동아리의 이름을 지을때, 3명의 학생이 코딩을 해보고싶어 모였기때문에 삼(3명)다수라고 지었다고 합니다.
         <br />
         2026년은 장흥에서 다시 시작합니다!
       </p>
