@@ -34,20 +34,21 @@ const schoolLabels = {
 };
 
 const members = [
-  { name: "김진서", school: "장흥중", schoolId: "jangheung", color: "from-blue-500 to-sky-900" },
+  { name: "김진서", school: "장흥중", schoolId: "jangheung", color: "from-blue-500 to-sky-900", image: "/kim-jinseo.png" },
   { name: "이원교", school: "장흥중", schoolId: "jangheung", color: "from-emerald-400 to-teal-800" },
   { name: "김관형", school: "장흥중", schoolId: "jangheung", color: "from-rose-400 to-zinc-800" },
   { name: "문민재", school: "장흥중", schoolId: "jangheung", color: "from-amber-300 to-stone-800" },
-  { name: "박재훈", school: "장흥중", schoolId: "jangheung", color: "from-violet-500 to-indigo-900" },
+  { name: "박재훈", school: "장흥중", schoolId: "jangheung", color: "from-violet-500 to-indigo-900", image: "/park-jaehoon.png" },
   { name: "김선재", school: "장흥중", schoolId: "jangheung", color: "from-cyan-400 to-slate-800" },
-  { name: "박하랑", school: "장흥중", schoolId: "jangheung", color: "from-pink-400 to-fuchsia-900" },
+  { name: "박하랑", school: "장흥중", schoolId: "jangheung", color: "from-pink-400 to-fuchsia-900", image: "/park-harang.png" },
   { name: "최유진", school: "장흥중", schoolId: "jangheung", color: "from-slate-500 to-blue-950" },
   { name: "위근영", school: "장흥중", schoolId: "jangheung", color: "from-orange-400 to-red-900" },
   { name: "강지훈", school: "장흥중", schoolId: "jangheung", color: "from-green-400 to-emerald-900" },
-  { name: "임가온", school: "장흥관산중", schoolId: "gwansan", color: "from-purple-400 to-slate-900" },
-  { name: "배유찬", school: "장흥관산중", schoolId: "gwansan", color: "from-sky-400 to-cyan-900" },
-  { name: "신라온", school: "장흥안양중", schoolId: "anyang", color: "from-red-400 to-zinc-900" },
-  { name: "홍지훈", school: "장흥안양중", schoolId: "anyang", color: "from-yellow-400 to-stone-900" },
+  { name: "김재현", school: "장흥관산중", schoolId: "gwansan", color: "from-purple-400 to-slate-900" },
+  { name: "박태겸", school: "장흥안양중", schoolId: "anyang", color: "from-red-400 to-zinc-900" },
+  { name: "오건의", school: "장흥안양중", schoolId: "anyang", color: "from-yellow-400 to-stone-900" },
+  { name: "오준혁", school: "장흥안양중", schoolId: "anyang", color: "from-cyan-500 to-blue-950" },
+  { name: "위준우", school: "장흥안양중", schoolId: "anyang", color: "from-lime-400 to-emerald-900" },
   { name: "영현T", school: "장흥중 / 정보", schoolId: "teachers", color: "from-slate-700 to-black", teacher: true, image: "/younghyun-avatar.png" },
   { name: "영욱T", school: "장흥관산중 / 사회", schoolId: "teachers", color: "from-blue-700 to-slate-950", teacher: true },
 ];
