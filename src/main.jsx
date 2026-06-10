@@ -35,22 +35,22 @@ const schoolLabels = {
 
 const members = [
   { name: "김진서", school: "장흥중", schoolId: "jangheung", color: "from-blue-500 to-sky-900", image: "/kim-jinseo.png" },
-  { name: "이원교", school: "장흥중", schoolId: "jangheung", color: "from-emerald-400 to-teal-800" },
+  { name: "이원교", school: "장흥중", schoolId: "jangheung", color: "from-emerald-400 to-teal-800", image: "/lee-wongyo.jpg" },
   { name: "김관형", school: "장흥중", schoolId: "jangheung", color: "from-rose-400 to-zinc-800" },
-  { name: "문민재", school: "장흥중", schoolId: "jangheung", color: "from-amber-300 to-stone-800" },
+  { name: "문민재", school: "장흥중", schoolId: "jangheung", color: "from-amber-300 to-stone-800", image: "/moon-minjae.png" },
   { name: "박재훈", school: "장흥중", schoolId: "jangheung", color: "from-violet-500 to-indigo-900", image: "/park-jaehoon.png" },
-  { name: "김선재", school: "장흥중", schoolId: "jangheung", color: "from-cyan-400 to-slate-800" },
+  { name: "김선재", school: "장흥중", schoolId: "jangheung", color: "from-cyan-400 to-slate-800", image: "/kim-seonjae.png" },
   { name: "박하랑", school: "장흥중", schoolId: "jangheung", color: "from-pink-400 to-fuchsia-900", image: "/park-harang.png" },
   { name: "최유진", school: "장흥중", schoolId: "jangheung", color: "from-slate-500 to-blue-950" },
-  { name: "위근영", school: "장흥중", schoolId: "jangheung", color: "from-orange-400 to-red-900" },
+  { name: "위근영", school: "장흥중", schoolId: "jangheung", color: "from-orange-400 to-red-900", image: "/wi-geunyeong.png" },
   { name: "강지훈", school: "장흥중", schoolId: "jangheung", color: "from-green-400 to-emerald-900" },
-  { name: "김재현", school: "장흥관산중", schoolId: "gwansan", color: "from-purple-400 to-slate-900" },
+  { name: "정재현", school: "장흥관산중", schoolId: "gwansan", color: "from-purple-400 to-slate-900" },
   { name: "박태겸", school: "장흥안양중", schoolId: "anyang", color: "from-red-400 to-zinc-900" },
   { name: "오건의", school: "장흥안양중", schoolId: "anyang", color: "from-yellow-400 to-stone-900" },
   { name: "오준혁", school: "장흥안양중", schoolId: "anyang", color: "from-cyan-500 to-blue-950" },
   { name: "위준우", school: "장흥안양중", schoolId: "anyang", color: "from-lime-400 to-emerald-900" },
   { name: "영현T", school: "장흥중 / 정보", schoolId: "teachers", color: "from-slate-700 to-black", teacher: true, image: "/younghyun-avatar.png" },
-  { name: "영욱T", school: "장흥관산중 / 사회", schoolId: "teachers", color: "from-blue-700 to-slate-950", teacher: true },
+  { name: "영욱T", school: "장흥관산중 / 사회", schoolId: "teachers", color: "from-blue-700 to-slate-950", teacher: true, image: "/younguk-teacher.png" },
 ];
 
 const projects = [
@@ -450,7 +450,6 @@ function MemberCard({ member }) {
       <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{member.school}</p>
       <div className="mt-3 flex justify-center gap-2">
         <IconLink variant="instagram" label={`${member.name} 인스타그램`} href="https://instagram.com/"><Instagram size={16} /></IconLink>
-        <IconLink variant="notion" label={`${member.name} 노션`} href="https://www.notion.so/"><NotebookTabs size={16} /></IconLink>
         <IconLink variant="github" label={`${member.name} 깃허브`} href="https://github.com/"><Github size={16} /></IconLink>
       </div>
     </article>
@@ -527,7 +526,6 @@ function Stat({ number, label, icon: Icon }) {
 function IconLink({ label, href, children, variant = "default" }) {
   const variants = {
     instagram: "border-transparent bg-gradient-to-br from-fuchsia-500 via-rose-500 to-amber-400 text-white hover:text-white",
-    notion: "border-slate-900 bg-white text-slate-950 hover:border-slate-500 dark:border-white dark:bg-white dark:text-slate-950",
     github: "border-slate-900 bg-slate-950 text-white hover:border-slate-700 dark:border-white/20",
     default: "border-slate-200 bg-white text-slate-700 hover:border-blue-300 hover:text-blue-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-200",
   };
